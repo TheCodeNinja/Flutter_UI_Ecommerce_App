@@ -44,21 +44,25 @@ class _BodyState extends State<Body> {
             flex: 2,
             child: Column(
               children: <Widget>[
-                Container(
-                  // container properties
-                  height: 6,
-                  width: 6,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  margin: EdgeInsets.only(right: 5),
-                ),
+                buildDot(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Container buildDot() {
+    return Container(
+      // container properties
+      height: 6,
+      width: 6,
+      decoration: BoxDecoration(
+        color: kPrimaryColor,
+        borderRadius: BorderRadius.circular(3),
+      ),
+      margin: EdgeInsets.only(right: 5),
     );
   }
 }
