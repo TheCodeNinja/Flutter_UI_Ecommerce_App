@@ -44,7 +44,12 @@ class _BodyState extends State<Body> {
             flex: 2,
             child: Column(
               children: <Widget>[
-                buildDot(),
+                Row(
+                  children: List.generate(
+                    splashData.length, 
+                    (index) => buildDot(index: index),
+                  ),
+                ),
               ],
             ),
           ),
@@ -53,7 +58,7 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Container buildDot() {
+  Container buildDot({ int index }) {
     return Container(
       // container properties
       height: 6,
