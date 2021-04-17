@@ -68,7 +68,12 @@ class _BodyState extends State<Body> {
                     child: TextButton(
                       onPressed: () {},
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(kPrimaryColor)
+                        backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                       ),
                       child: Text(
                         "Continue",
