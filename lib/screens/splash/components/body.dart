@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
+import 'package:flutter_ecommerce_ui_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // for importing components, this relative path is best practice
@@ -67,7 +68,10 @@ class _BodyState extends State<Body> {
                   Spacer(flex: 3),
                   DefaultButton(
                     text: "Continue",
-                    press: () {},
+                    press: () {
+                      // navigate to sign_in_screen
+                      Navigator.pushNamed(context, SignInScreen.routeName);
+                    },
                   ),
                   Spacer(),
                 ],
