@@ -49,33 +49,38 @@ class _BodyState extends State<Body> {
           ),
           Expanded(
             flex: 2,
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    splashData.length, 
-                    (index) => buildDot(index: index),
-                  ),
-                ),
-                SizedBox(
-                  width: double.infinity, // as wide as its parent column
-                  height: getProportionateScreenHeight(56),
-                  child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(kPrimaryColor)
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(20),
+              ),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      splashData.length, 
+                      (index) => buildDot(index: index),
                     ),
-                    child: Text(
-                      "Continue",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: getProportionateScreenWidth(18),
+                  ),
+                  SizedBox(
+                    width: double.infinity, // as wide as its parent column
+                    height: getProportionateScreenHeight(56),
+                    child: TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(kPrimaryColor)
+                      ),
+                      child: Text(
+                        "Continue",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: getProportionateScreenWidth(18),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
