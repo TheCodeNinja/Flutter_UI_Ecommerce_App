@@ -55,6 +55,7 @@ class _BodyState extends State<Body> {
               ),
               child: Column(
                 children: <Widget>[
+                  Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
@@ -62,6 +63,7 @@ class _BodyState extends State<Body> {
                       (index) => buildDot(index: index),
                     ),
                   ),
+                  Spacer(flex: 3),
                   SizedBox(
                     width: double.infinity, // as wide as its parent column
                     height: getProportionateScreenHeight(56),
@@ -84,6 +86,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                   ),
+                  Spacer(),
                 ],
               ),
             ),
