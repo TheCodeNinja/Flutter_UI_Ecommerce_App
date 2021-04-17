@@ -4,6 +4,7 @@ import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // for importing components, this relative path is best practice
 import '../components/splash_content.dart';
+import '../../../components/default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -64,27 +65,9 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                   Spacer(flex: 3),
-                  SizedBox(
-                    width: double.infinity, // as wide as its parent column
-                    height: getProportionateScreenHeight(56),
-                    child: TextButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(kPrimaryColor),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
-                      child: Text(
-                        "Continue",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: getProportionateScreenWidth(18),
-                        ),
-                      ),
-                    ),
+                  DefaultButton(
+                    text: "Continue",
+                    press: () {},
                   ),
                   Spacer(),
                 ],
