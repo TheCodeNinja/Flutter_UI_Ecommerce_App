@@ -64,8 +64,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Container buildDot({ int index }) {
-    return Container(
+  AnimatedContainer buildDot({ int index }) {
+    return AnimatedContainer(
+      duration: kAnimationDuration,
       // container properties
       height: 6,
       width: currentPage == index ? 20 : 6,
