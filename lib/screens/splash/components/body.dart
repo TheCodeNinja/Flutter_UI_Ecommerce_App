@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
+import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // for importing components, this relative path is best practice
 import '../components/splash_content.dart';
@@ -55,6 +56,19 @@ class _BodyState extends State<Body> {
                   children: List.generate(
                     splashData.length, 
                     (index) => buildDot(index: index),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(kPrimaryColor)
+                  ),
+                  child: Text(
+                    "Continue",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: getProportionateScreenWidth(18),
+                    ),
                   ),
                 ),
               ],
