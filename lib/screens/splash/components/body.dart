@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_ui_app/constants.dart';
-import 'package:flutter_ecommerce_ui_app/size_config.dart';
+
+// for importing components, this relative path is best practice
+import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -46,43 +47,6 @@ class _BodyState extends State<Body> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    Key key,
-    this.text,
-    this.image,
-  }) : super(key: key);
-
-  final String text, image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Spacer(),
-        Text(
-          "NINJA",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-        ),
-        Spacer(flex: 2),
-        Image.asset(
-          image,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
-        ),
-      ],
     );
   }
 }
