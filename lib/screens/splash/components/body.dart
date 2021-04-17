@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/constants.dart';
 
 // for importing components, this relative path is best practice
 import '../components/splash_content.dart';
@@ -41,8 +42,19 @@ class _BodyState extends State<Body> {
           ),
           Expanded(
             flex: 2,
-            child: Container( // can be Column, Row, SizedBox
-              color: Colors.amberAccent,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  // container properties
+                  height: 6,
+                  width: 6,
+                  decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                  margin: EdgeInsets.only(right: 5),
+                ),
+              ],
             ),
           ),
         ],
