@@ -10,6 +10,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Ninja shop",
@@ -33,6 +34,11 @@ class _BodyState extends State<Body> {
           Expanded(
             flex: 3,
             child: PageView.builder(
+              onPageChanged: (value) {
+                setState(() {
+                  currentPage = value;
+                });
+              },
               itemCount: splashData.length,
               itemBuilder: (context, index) => SplashContent(
                 text: splashData[index]["text"],
@@ -62,9 +68,9 @@ class _BodyState extends State<Body> {
     return Container(
       // container properties
       height: 6,
-      width: 6,
+      width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: kPrimaryColor,
+        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),
       ),
       margin: EdgeInsets.only(right: 5),
