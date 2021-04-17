@@ -51,6 +51,7 @@ class _BodyState extends State<Body> {
             child: Column(
               children: <Widget>[
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     splashData.length, 
                     (index) => buildDot(index: index),
