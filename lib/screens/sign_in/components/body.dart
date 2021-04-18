@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // import components
@@ -42,6 +43,8 @@ class SignInForm extends StatefulWidget {
 }
 
 class _SignInFormState extends State<SignInForm> {
+  final List<String> errors = [];
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -64,6 +67,30 @@ class _SignInFormState extends State<SignInForm> {
     return TextFormField(
       // hide input
       obscureText: true,
+      validator: (value) {
+        // empty password, and
+        // not contain empty password error message
+        if (value.isEmpty && !errors.contains(kPassNullError)) {
+          // add empty error message to errors array
+          setState(() {
+            errors.add(kPassNullError);
+          });
+        // not empty password, and
+        // short length password, and
+        // not contain short length error message
+        } else if (
+          value.isNotEmpty &&
+          value.length < 8 &&
+          !errors.contains(kShortPassError)
+        ){
+          // add short length error message to errors array
+          setState(() {
+            errors.add(kShortPassError);
+          });
+        }
+        // pass password check
+        return null;
+      },
       decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
@@ -76,6 +103,30 @@ class _SignInFormState extends State<SignInForm> {
 
   TextFormField buildEmailTextFormField() {
     return TextFormField(
+      validator: (value) {
+        // empty email, and
+        // not contain empty email error message
+        if (value.isEmpty && !errors.contains(kEmailNullError)) {
+          // add empty error message to errors array
+          setState(() { 
+            errors.add(kEmailNullError);
+          });
+        // not empty email, and
+        // invalid email pattern, and
+        // not contain invalid email error message, and
+        } else if (
+          value.isNotEmpty &&
+          !emailValidatorRegExp.hasMatch(value) &&
+          !errors.contains(kInvalidEmailError)
+        ){
+          setState(() {
+            // add invalid error message to errors array
+            errors.add(kInvalidEmailError);
+          });
+        }
+        // pass email check
+        return null;
+      },
       decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",
