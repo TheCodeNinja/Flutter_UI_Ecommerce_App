@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -46,7 +47,24 @@ class _SignInFormState extends State<SignInForm> {
           TextFormField(
             decoration: InputDecoration(
               labelText: "Email",
-              hintText: "Enter your email",     
+              hintText: "Enter your email",
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(28),
+                borderSide: BorderSide(color: kTextColor),
+                gapPadding: 10,
+              ),
             ),
           ),
         ],
