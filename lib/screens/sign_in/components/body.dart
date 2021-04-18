@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
-import 'package:flutter_svg/svg.dart';
+
+// import components
+import '../../../components/custom_suffix_icon.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -51,18 +52,7 @@ class _SignInFormState extends State<SignInForm> {
               hintText: "Enter your email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
               // use dependency flutter_svg
-              suffixIcon: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  0,
-                  getProportionateScreenWidth(20),
-                  getProportionateScreenWidth(20),
-                  getProportionateScreenWidth(20),
-                ),
-                child: SvgPicture.asset(
-                  "assets/icons/Mail.svg",
-                  height: getProportionateScreenWidth(18),
-                ),
-              ),
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
         ],
