@@ -55,6 +55,17 @@ class _SignInFormState extends State<SignInForm> {
               suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
+          TextFormField(
+            // hide input
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: "Password",
+              hintText: "Enter your password",
+              floatingLabelBehavior: FloatingLabelBehavior.always,
+              // use dependency flutter_svg
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
+            ),
+          ),
         ],
       ),
     );
