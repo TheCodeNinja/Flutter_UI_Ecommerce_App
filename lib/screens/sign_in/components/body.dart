@@ -46,27 +46,35 @@ class _SignInFormState extends State<SignInForm> {
     return Form(
       child: Column(
         children: [
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: "Email",
-              hintText: "Enter your email",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              // use dependency flutter_svg
-              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
-            ),
-          ),
-          TextFormField(
-            // hide input
-            obscureText: true,
-            decoration: InputDecoration(
-              labelText: "Password",
-              hintText: "Enter your password",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              // use dependency flutter_svg
-              suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
-            ),
-          ),
+          buildEmailTextFormField(),
+          buildPasswordTextFormField(),
         ],
+      ),
+    );
+  }
+
+  TextFormField buildPasswordTextFormField() {
+    return TextFormField(
+      // hide input
+      obscureText: true,
+      decoration: InputDecoration(
+        labelText: "Password",
+        hintText: "Enter your password",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        // use dependency flutter_svg
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
+  }
+
+  TextFormField buildEmailTextFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Email",
+        hintText: "Enter your email",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        // use dependency flutter_svg
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
   }
