@@ -4,6 +4,8 @@ import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // import components
 import '../../../components/custom_suffix_icon.dart'; 
+import '../../../components/form_error.dart'; 
+import '../../../components/default_button.dart'; 
 
 class Body extends StatelessWidget {
   @override
@@ -97,6 +99,11 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               // use dependency flutter_svg
               suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
+          ),
+          FormError(errors: errors),
+          DefaultButton(
+            text: "Continue",
+            press: () {},
           ),
         ],
       ),
