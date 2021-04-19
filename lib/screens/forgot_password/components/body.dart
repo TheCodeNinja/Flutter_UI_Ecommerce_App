@@ -48,12 +48,14 @@ class ForgotPasswordForm extends StatefulWidget {
 }
 
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
+  final _formKey = GlobalKey<FormState>();
   List<String> errors = [];
   String email;
   
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           TextFormField(
@@ -114,7 +116,11 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultButton(
             text: "Continue",
-            press: () {},
+            press: () {
+              if (_formKey.currentState.validate()) {
+                // navigate to login success screen
+              }
+            },
           ),
         ],
       ),
