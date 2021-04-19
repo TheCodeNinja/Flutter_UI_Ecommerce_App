@@ -16,6 +16,7 @@ class Body extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Column(
             children: [
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
               Text(
                 "Welcome back",
                 style: TextStyle(
@@ -28,7 +29,9 @@ class Body extends StatelessWidget {
                 "Sign in with your email and password \nor continue with social media",
                 textAlign: TextAlign.center,
               ),
+              SizedBox(height: SizeConfig.screenHeight * 0.08),
               SignInForm(),
+              SizedBox(height: SizeConfig.screenHeight * 0.08),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -46,6 +49,7 @@ class Body extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: getProportionateScreenWidth(20)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
