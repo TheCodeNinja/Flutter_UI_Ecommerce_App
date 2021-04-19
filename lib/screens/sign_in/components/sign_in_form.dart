@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/screens/forgot_password/forgot_password_screen.dart';
+import 'package:flutter_ecommerce_ui_app/screens/login_success/login_success_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // import components
@@ -68,6 +69,8 @@ class _SignInFormState extends State<SignInForm> {
               // Validate() returns true if the form is valid, or false otherwise.
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                // navigate to login success screen
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           ),
@@ -108,6 +111,7 @@ class _SignInFormState extends State<SignInForm> {
           setState(() {
             errors.add(kPassNullError);
           });
+          return "";
         // not empty password, and
         // short length password, and
         // not contain short length error message
@@ -120,6 +124,7 @@ class _SignInFormState extends State<SignInForm> {
           setState(() {
             errors.add(kShortPassError);
           });
+          return "";
         }
         // pass password check
         return null;
@@ -164,6 +169,7 @@ class _SignInFormState extends State<SignInForm> {
           setState(() { 
             errors.add(kEmailNullError);
           });
+          return "";
         // not empty email, and
         // invalid email pattern, and
         // not contain invalid email error message, and
@@ -176,6 +182,7 @@ class _SignInFormState extends State<SignInForm> {
             // add invalid error message to errors array
             errors.add(kInvalidEmailError);
           });
+          return "";
         }
         // pass email check
         return null;
