@@ -82,6 +82,25 @@ class _SignInFormState extends State<SignInForm> {
     return TextFormField(
       // hide input
       obscureText: true,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
+          // remove empty error message from errors array
+          setState(() { 
+            errors.remove(kPassNullError);
+          });
+        } else if (
+          value.isEmpty ||
+          value.length > 8 &&
+          errors.contains(kShortPassError)
+        ){
+          setState(() {
+            // remove invalid error message from errors array
+            errors.remove(kShortPassError);
+          });
+        }
+        // pass email check
+        return null;
+      },
       validator: (value) {
         // empty password, and
         // not contain empty password error message
@@ -118,6 +137,25 @@ class _SignInFormState extends State<SignInForm> {
 
   TextFormField buildEmailTextFormField() {
     return TextFormField(
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
+          // remove empty error message from errors array
+          setState(() { 
+            errors.remove(kEmailNullError);
+          });
+        } else if (
+          value.isEmpty ||
+          emailValidatorRegExp.hasMatch(value) &&
+          errors.contains(kInvalidEmailError)
+        ){
+          setState(() {
+            // remove invalid error message from errors array
+            errors.remove(kInvalidEmailError);
+          });
+        }
+        // pass email check
+        return null;
+      },
       validator: (value) {
         // empty email, and
         // not contain empty email error message
