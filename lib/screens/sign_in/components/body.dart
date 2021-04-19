@@ -48,6 +48,8 @@ class _SignInFormState extends State<SignInForm> {
   // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
+  String email;
+  String password;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,7 @@ class _SignInFormState extends State<SignInForm> {
           buildPasswordTextFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
           FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
             press: () {
@@ -82,6 +85,7 @@ class _SignInFormState extends State<SignInForm> {
     return TextFormField(
       // hide input
       obscureText: true,
+      onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kPassNullError)) {
           // remove empty error message from errors array
@@ -137,6 +141,7 @@ class _SignInFormState extends State<SignInForm> {
 
   TextFormField buildEmailTextFormField() {
     return TextFormField(
+      onSaved: (newValue) => email = newValue,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kEmailNullError)) {
           // remove empty error message from errors array
