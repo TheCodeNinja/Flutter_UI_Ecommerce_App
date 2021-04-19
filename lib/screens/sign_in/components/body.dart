@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // import components
 import '../../../components/custom_suffix_icon.dart';
@@ -43,20 +44,50 @@ class SignInForm extends StatefulWidget {
 }
 
 class _SignInFormState extends State<SignInForm> {
+  // Create a global key that uniquely identifies the Form widget
+  // and allows validation of the form.
+  final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      // Build a Form widget using the _formKey created above.
+      key: _formKey,
       child: Column(
         children: [
           buildEmailTextFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
           buildPasswordTextFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
+          Column(
+            children: List.generate(errors.length, (index) => (
+              Row(
+                children: [
+                  SvgPicture.asset(
+                    "assets/icons/Error.svg",
+                    height: getProportionateScreenWidth(14),
+                    width: getProportionateScreenWidth(14),
+                  ),
+                  SizedBox(
+                    width: getProportionateScreenWidth(10),
+                  ),
+                  Text(errors[index]),
+                ],
+              )
+            )),
+          ),
           DefaultButton(
             text: "Continue",
-            press: () {},
+            press: () {
+              // You can use the _formKey.currentState() method to access the FormState,
+              // which is automatically created by Flutter when building a Form.
+              // The FormState class contains the validate() method.
+              // Validate() returns true if the form is valid, or false otherwise.
+              if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+              }
+            },
           ),
         ],
       ),
