@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // import components
@@ -28,10 +29,39 @@ class Body extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SignInForm(),
-              SocialCard(
-                icon: "assets/icons/facebook-2.svg",
-                press: () {},
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialCard(
+                    icon: "assets/icons/google-icon.svg",
+                    press: () {},
+                  ),
+                  SocialCard(
+                    icon: "assets/icons/facebook-2.svg",
+                    press: () {},
+                  ),
+                  SocialCard(
+                    icon: "assets/icons/twitter.svg",
+                    press: () {},
+                  ),
+                ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account?",
+                    style: TextStyle(fontSize: getProportionateScreenWidth(16)),
+                  ),
+                  Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(16),
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
