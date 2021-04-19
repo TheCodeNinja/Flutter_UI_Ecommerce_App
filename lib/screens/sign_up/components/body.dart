@@ -1,38 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_ui_app/constants.dart';
-import 'package:flutter_ecommerce_ui_app/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
-// import components
-import '../components/sign_in_form.dart';
 import '../../../components/social_card.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea( // exclude small space for top and bottom
+    return SafeArea(
       child: SizedBox(
-        width: double.infinity, // let Column as wide as its parent SafeArea
+        width: double.infinity, // as wide as its parent widget
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
                 Text(
-                  "Welcome back",
+                  "Register Account",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(28),
                     fontWeight: FontWeight.bold,
+                    height: 1.5,
                   ),
                 ),
                 Text(
-                  "Sign in with your email and password \nor continue with social media",
+                  "Complete your details or continue \nwith social media",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
-                SignInForm(),
+                SignUpForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -51,31 +50,31 @@ class Body extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: getProportionateScreenWidth(20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(fontSize: getProportionateScreenWidth(16)),
-                    ),
-                    GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, SignUpScreen.routeName),
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          fontSize: getProportionateScreenWidth(16),
-                          color: kPrimaryColor,
-                        ),
-                      ),
-                    ),
-                  ],
+                SizedBox(height: getProportionateScreenHeight(20)),
+                Text(
+                  'By continuing your confirm that you agree \nwith our Term and Condition',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.caption,
                 )
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class SignUpForm extends StatefulWidget {
+  @override
+  _SignUpFormState createState() => _SignUpFormState();
+}
+
+class _SignUpFormState extends State<SignUpForm> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }
