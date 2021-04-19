@@ -50,6 +50,7 @@ class _SignInFormState extends State<SignInForm> {
   final List<String> errors = [];
   String email;
   String password;
+  bool remember = false;
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +60,30 @@ class _SignInFormState extends State<SignInForm> {
       child: Column(
         children: [
           buildEmailTextFormField(),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordTextFormField(),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          Row(
+            children: [
+              Checkbox(
+                value: remember,
+                activeColor: kPrimaryColor,
+                onChanged: (value) {
+                  setState(() {
+                    remember = value;
+                  });
+                },
+              ),
+              Text("Remember me"),
+              Spacer(),
+              Text(
+                "Forgot Password",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                ),
+              )
+            ],
+          ),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
