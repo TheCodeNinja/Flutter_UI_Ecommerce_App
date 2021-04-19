@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 // import components
 import '../../../components/custom_suffix_icon.dart';
 import '../../../components/default_button.dart';
+import '../../../components/form_error.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -60,23 +60,7 @@ class _SignInFormState extends State<SignInForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           buildPasswordTextFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
-          Column(
-            children: List.generate(errors.length, (index) => (
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    "assets/icons/Error.svg",
-                    height: getProportionateScreenWidth(14),
-                    width: getProportionateScreenWidth(14),
-                  ),
-                  SizedBox(
-                    width: getProportionateScreenWidth(10),
-                  ),
-                  Text(errors[index]),
-                ],
-              )
-            )),
-          ),
+          FormError(errors: errors),
           DefaultButton(
             text: "Continue",
             press: () {
