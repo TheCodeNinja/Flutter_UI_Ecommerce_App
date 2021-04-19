@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
+import 'package:flutter_ecommerce_ui_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 // import components
@@ -45,10 +46,13 @@ class _SignInFormState extends State<SignInForm> {
               ),
               Text("Remember me"),
               Spacer(),
-              Text(
-                "Forgot Password",
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
+              GestureDetector(
+                onTap: () => Navigator.popAndPushNamed(context, ForgotPasswordScreen.routeName),
+                child: Text(
+                  "Forgot Password",
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               )
             ],
