@@ -12,22 +12,31 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        children: [
-          Text(
-            "Forgot Password",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: getProportionateScreenWidth(28),
-              fontWeight: FontWeight.bold,
-            ),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
           ),
-          Text(
-            "Please enter your email and we will send \nyou a link to return to your account",
-            textAlign: TextAlign.center,
+          child: Column(
+            children: [
+              SizedBox(height: SizeConfig.screenHeight * 0.1),
+              Text(
+                "Forgot Password",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: getProportionateScreenWidth(28),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "Please enter your email and we will send \nyou a link to return to your account",
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.1),
+              ForgotPasswordForm(),
+            ],
           ),
-          ForgotPasswordForm(),
-        ],
+        ),
       ),
     );
   }
@@ -100,7 +109,9 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
             ),
           ),
+          SizedBox(height: getProportionateScreenHeight(30)),
           FormError(errors: errors),
+          SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultButton(
             text: "Continue",
             press: () {},
