@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -27,7 +28,7 @@ class Body extends StatelessWidget {
               Text("We sent your code to +852 8600 ****"),
 
               // == Timer with text ==
-              Text("Timer With Text Here"),
+              buildTimer(),
               
               // == otp_form ==
               Text("Our Otp Form Here"),
@@ -46,6 +47,26 @@ class Body extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Row buildTimer() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("This code will expired in "),
+        TweenAnimationBuilder(
+          // range
+          tween: Tween(begin: 60.0, end: 0.0),
+          // how long
+          duration: Duration(seconds: 60),
+          // build widget
+          builder: (_, value, child) => Text(
+            "00:${value.toInt()}",
+            style: TextStyle(color: kPrimaryColor),
+          ),
+        ),
+      ],
     );
   }
 }
