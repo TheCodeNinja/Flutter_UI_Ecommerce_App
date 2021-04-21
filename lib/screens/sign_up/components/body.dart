@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 import '../../../components/social_card.dart';
+import '../components/sign_up_form.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -61,20 +62,6 @@ class Body extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class SignUpForm extends StatefulWidget {
-  @override
-  _SignUpFormState createState() => _SignUpFormState();
-}
-
-class _SignUpFormState extends State<SignUpForm> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
     );
   }
 }
