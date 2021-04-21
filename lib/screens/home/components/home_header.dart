@@ -28,7 +28,11 @@ class HomeHeader extends StatelessWidget {
           ),
           
           // Bell Icon
-          Text("bell"),
+          BadgeButton(
+            svgSrc: "assets/icons/Bell.svg",
+            numOfitem: 3,
+            press: () {},
+          ),
         ],
       ),
     );
