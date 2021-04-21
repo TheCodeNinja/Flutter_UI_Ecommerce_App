@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
+import '../components/otp_form.dart';
+
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class Body extends StatelessWidget {
               buildTimer(),
               
               // == otp_form ==
-              Text("Our Otp Form Here"),
+              OtpForm(),
               
               // == Resend otp text ==
               GestureDetector(
