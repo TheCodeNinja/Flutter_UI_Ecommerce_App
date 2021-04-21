@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
+import 'package:flutter_ecommerce_ui_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 import '../../../components/form_error.dart';
@@ -55,7 +56,7 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
           ),
