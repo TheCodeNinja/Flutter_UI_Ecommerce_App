@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
+import '../components/complete_profile_form.dart';
+
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,8 +34,8 @@ class Body extends StatelessWidget {
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),
                 // == Profile Form ==
-                Text("Our Form Here"),
-                // CompleteProfileForm(),
+                // Text("Our Form Here"),
+                CompleteProfileForm(),
                 SizedBox(height: getProportionateScreenHeight(30)),
                 // Terms and Conditons Text
                 Text(
