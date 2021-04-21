@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/constants.dart';
+import 'package:flutter_ecommerce_ui_app/screens/otp/otp_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 import '../../../components/form_error.dart';
@@ -55,6 +56,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 // Navigate to another screen
+                Navigator.pushNamed(context, OtpScreen.routeName);
               }
             },
           ),
