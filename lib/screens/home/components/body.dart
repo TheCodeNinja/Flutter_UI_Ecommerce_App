@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_ui_app/size_config.dart';
+
+import '../components/home_header.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class _BodyState extends State<Body> {
         child: Column(
           children: [
             // Header
-            Text("Header"),
+            HomeHeader(),
              
             // Discount Banner
             Text("Discount Banner"),
