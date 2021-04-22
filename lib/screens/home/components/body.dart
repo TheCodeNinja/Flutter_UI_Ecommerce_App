@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/home_header.dart';
 import '../components/discount_banner.dart';
 import '../components/categories.dart';
+import '../components/special_offers.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _BodyState extends State<Body> {
             Categories(),
 
             // Special Offers
-            Text("SpecialOffers"),
+            SpecialOffers(),
             
             // Popular Products
             Text("Popular Products"),
