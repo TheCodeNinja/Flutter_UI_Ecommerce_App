@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/components/rounded_icon_button.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 class CustomAppBar extends PreferredSize {
@@ -19,7 +20,7 @@ class CustomAppBar extends PreferredSize {
         // ~~~~~~~~~~~~~~~~~
         child: Row(
           children: [
-            Text("back-arrow"),
+            RoundedIconButton(),
             Spacer(),
             Text("rating"),
           ],
