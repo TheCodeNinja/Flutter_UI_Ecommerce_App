@@ -30,16 +30,102 @@ class SpecialOffers extends StatelessWidget {
           // child widget row
           child: Row(
             children: [
-              Text("SpecialOfferCard"),
-              SizedBox(width: getProportionateScreenWidth(20)),
-              Text("SpecialOfferCard"),
-              SizedBox(width: getProportionateScreenWidth(20)),
-              Text("SpecialOfferCard"),
+              SpecialOfferCard(
+                image: "assets/images/Image Banner 2.png",
+                category: "Smartphone",
+                numOfBrands: 18,
+                press: () {},
+              ),
+              SpecialOfferCard(
+                image: "assets/images/Image Banner 3.png",
+                category: "Fashion",
+                numOfBrands: 24,
+                press: () {},
+              ),
               SizedBox(width: getProportionateScreenWidth(20)),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class SpecialOfferCard extends StatelessWidget {
+  const SpecialOfferCard({
+    Key key,
+    @required this.category,
+    @required this.image,
+    @required this.numOfBrands,
+    @required this.press,
+  }) : super(key: key);
+
+  final String category, image;
+  final int numOfBrands;
+  final GestureTapCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      child: GestureDetector(
+        onTap: press, // arg4
+        // SizedBox
+        child: SizedBox(
+          // size
+          width: getProportionateScreenWidth(242),
+          height: getProportionateScreenWidth(100),
+          // child widget
+          child: ClipRRect( // A widget that clips its child using a rounded rectangle.
+            borderRadius: BorderRadius.circular(20),
+            child: Stack(
+              children: [
+                // # image
+                Image.asset(
+                  image, // arg1
+                  fit: BoxFit.cover,
+                ),
+                // # container
+                Container(
+                  // shape, color
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFF343434).withOpacity(0.4),
+                        Color(0xFF343434).withOpacity(0.15),
+                      ],
+                    ),
+                  ),
+                ),
+                // # text with padding
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(15.0),
+                    vertical: getProportionateScreenWidth(10),
+                  ),
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: "$category\n", // arg2
+                          style: TextStyle(
+                            fontSize: getProportionateScreenWidth(18),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(text: "$numOfBrands Brands"), // arg3
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
