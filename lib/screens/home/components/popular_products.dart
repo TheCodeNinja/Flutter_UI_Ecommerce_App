@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/models/Product.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 import '../components/section_title.dart';
+import '../../../components/product_card.dart';
 
 class PopularProducts extends StatelessWidget {
   @override
@@ -20,19 +22,23 @@ class PopularProducts extends StatelessWidget {
         ),
         // # space
         SizedBox(height: getProportionateScreenWidth(20)),
-        // # a row of list
+        // # a row of list with scrollview
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SizedBox(width: getProportionateScreenWidth(20)),
-              Text("product_card"),
-              SizedBox(width: getProportionateScreenWidth(20)),
-              Text("product_card"),
-              SizedBox(width: getProportionateScreenWidth(20)),
-              Text("product_card"),
-              SizedBox(width: getProportionateScreenWidth(20)),
-              Text("product_card"),
+              // widget list
+              ...List.generate(
+                // how long
+                demoProducts.length,
+                // build widget
+                (index) {
+                  if (demoProducts[index].isPopular)
+                    return ProductCard(product: demoProducts[index]);
+
+                  return SizedBox.shrink(); // by default width and height is 0
+                },
+              ),
               SizedBox(width: getProportionateScreenWidth(20)),
             ],
           ),
