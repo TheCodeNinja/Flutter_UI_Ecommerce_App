@@ -4,6 +4,7 @@ import '../components/home_header.dart';
 import '../components/discount_banner.dart';
 import '../components/categories.dart';
 import '../components/special_offers.dart';
+import '../components/popular_products.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -30,7 +31,7 @@ class _BodyState extends State<Body> {
             SpecialOffers(),
             
             // Popular Products
-            Text("Popular Products"),
+            PopularProducts(),
           ],
         ),
       ),
