@@ -3,6 +3,7 @@ import 'package:flutter_ecommerce_ui_app/models/Product.dart';
 
 import '../components/product_images.dart';
 import '../components/top_rounded_container.dart';
+import '../components/product_description.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -26,14 +27,9 @@ class Body extends StatelessWidget {
           child: Column(
             children: [
               // product description
-              SizedBox(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("product-description"),
-                  ],
-                ),
+              ProductDescription(
+                product: product,
+                pressOnSeeMore: () {},
               ),
               // icon buttons and default button
               TopRoundedContainer(
