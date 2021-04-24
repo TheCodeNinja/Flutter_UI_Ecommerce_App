@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_ui_app/models/Product.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
+import '../components/product_images.dart';
+
 class Body extends StatelessWidget {
   final Product product;
 
@@ -14,23 +16,7 @@ class Body extends StatelessWidget {
         // Body Top Section
         // ~~~~~~~~~~~~~~~~
         
-        // product image
-        SizedBox(
-          child: Text("product_image"),
-        ),
-        // row of thumbnails
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Thumbnail"),
-            SizedBox(width: 10),
-            Text("Thumbnail"),
-            SizedBox(width: 10),
-            Text("Thumbnail"),
-            SizedBox(width: 10),
-            Text("Thumbnail"),
-          ],
-        ),
+        ProductImages(product: product),
 
         // Body Bottom Section
         // ~~~~~~~~~~~~~~~~~~~

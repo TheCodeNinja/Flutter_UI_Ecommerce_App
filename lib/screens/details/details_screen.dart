@@ -18,7 +18,7 @@ class DetailsScreen extends StatelessWidget {
       // we are going to create a custom app bar, as the default appBar 
       // donen't provide enough space for the screen's go-back icon
       appBar: CustomAppBar(rating: args.product.rating),
-      body: Body(),
+      body: Body(product: args.product),
     );
   }
 }
