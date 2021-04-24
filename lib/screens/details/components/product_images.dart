@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/constants.dart';
 import 'package:flutter_ecommerce_ui_app/models/Product.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
@@ -34,12 +35,44 @@ class _ProductImagesState extends State<ProductImages> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("thumbnails"),
-            SizedBox(width: 10),
-            Text("thumbnails"),
+            ...List.generate(
+              // how long
+              widget.product.images.length,
+              // build widget
+              (index) => buildSmallProductPreview(index)),
           ],
         )
       ],
+    );
+  }
+
+  GestureDetector buildSmallProductPreview(int index) {
+    return GestureDetector(
+      // action
+      onTap: () {
+        setState(() {
+          selectedImage = index;
+        });
+      },
+      // # child widget [AnimatedContainer]
+      child: AnimatedContainer(
+        // how long
+        duration: defaultDuration,
+        // size, padding, margin
+        margin: EdgeInsets.symmetric(horizontal: 7.5),
+        padding: EdgeInsets.all(8),
+        height: getProportionateScreenWidth(48),
+        width: getProportionateScreenWidth(48),
+        // border, color
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: kPrimaryColor.withOpacity(selectedImage == index ? 1 : 0)),
+        ),
+        // ## child widget [Image]
+        child: Image.asset(widget.product.images[index]),
+      ),
     );
   }
 }
