@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_ecommerce_ui_app/models/Product.dart';
+import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 import '../components/product_images.dart';
 import '../components/top_rounded_container.dart';
 import '../components/product_description.dart';
 import '../components/color_dots.dart';
+import '../../../components/default_button.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -40,7 +43,18 @@ class Body extends StatelessWidget {
                     ColorDots(product: product),
                     TopRoundedContainer(
                       color: Colors.white,
-                      child: Text("button"),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: SizeConfig.screenWidth * 0.15,
+                          right: SizeConfig.screenWidth * 0.15,
+                          top: getProportionateScreenWidth(15),
+                          bottom: getProportionateScreenWidth(40),
+                        ),
+                        child: DefaultButton(
+                          text: "Add to Cart",
+                          press: () {},
+                        ),
+                      ),
                     ),
                   ],
                 ),
