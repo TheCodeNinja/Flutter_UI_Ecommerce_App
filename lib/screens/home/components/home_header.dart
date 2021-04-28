@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_ui_app/screens/cart/cart_screen.dart';
 import 'package:flutter_ecommerce_ui_app/size_config.dart';
 
 import '../components/search_field.dart';
@@ -24,7 +25,9 @@ class HomeHeader extends StatelessWidget {
           // Cart Icon
           BadgeButton(
             svgSrc: "assets/icons/Cart Icon.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, CartScreen.routeName);
+            },
           ),
           
           // Bell Icon
