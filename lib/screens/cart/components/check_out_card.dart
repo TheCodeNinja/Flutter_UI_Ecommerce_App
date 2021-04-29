@@ -43,7 +43,16 @@ class CheckoutCard extends StatelessWidget {
             // ### [Row]
             Row(
               children: [
-                SvgPicture.asset("assets/icons/receipt.svg"),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  height: getProportionateScreenWidth(40),
+                  width: getProportionateScreenWidth(40),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF5F6F9),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: SvgPicture.asset("assets/icons/receipt.svg"),
+                ),
                 Spacer(), // space between
                 Text("Add voucher code"),
                 const SizedBox(width: 10),
