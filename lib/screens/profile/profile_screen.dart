@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './components/body.dart';
+
 class ProfileScreen extends StatelessWidget {
    static String routeName = "/profile";
    @override
@@ -8,6 +10,7 @@ class ProfileScreen extends StatelessWidget {
        appBar: AppBar(
          title: Text("Profile"),
        ),
+        body: Body(),
      );
    }
  }
