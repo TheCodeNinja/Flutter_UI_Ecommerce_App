@@ -23,7 +23,35 @@ class _BodyState extends State<Body> {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: CartItemCard(cartItem: demoCarts[index]),
+            child: Dismissible(
+              // key
+              key: Key(demoCarts[index].product.id.toString()),
+              // direction
+              direction: DismissDirection.endToStart,
+              // action
+              onDismissed: (direction) {
+                // remove the item from the data source
+                setState(() {
+                  demoCarts.removeAt(index);
+                });
+              },
+              // "leave behind" indicator
+              background: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFE6E6),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: [
+                    Spacer(),
+                    SvgPicture.asset("assets/icons/Trash.svg"),
+                  ],
+                ),
+              ),
+              // list itemBuilder widget
+              child:CartItemCard(cartItem: demoCarts[index]),
+            ),
           ); 
         },
       ),
